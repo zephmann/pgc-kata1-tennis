@@ -16,6 +16,7 @@ INSTALL_REQUIRES = []
 
 APP_REQUIRES = [
     "flask >= 1, < 2",
+    "python-dotenv >= 0.16.0, < 1"
 ]
 
 TEST_REQUIRES = [
