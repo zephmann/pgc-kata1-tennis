@@ -73,3 +73,59 @@ def test_point_opponent(match):
 )
 def test_score(original_score, formatted_score):
     assert tennis.score(original_score) == formatted_score
+
+
+def test_integration_1(match):
+    assert match.score == "Love All"
+    match.point_server()
+    assert match.score == "15-Love"
+    match.point_server()
+    assert match.score == "30-Love"
+    match.point_opponent()
+    assert match.score == "30-15"
+    match.point_server()
+    assert match.score == "40-15"
+    match.point_opponent()
+    assert match.score == "40-30"
+    match.point_opponent()
+    assert match.score == "Deuce"
+    match.point_opponent()
+    assert match.score == "Adv Out"
+    match.point_server()
+    assert match.score == "Deuce"
+    match.point_server()
+    assert match.score == "Adv In"
+    match.point_opponent()
+    assert match.score == "Deuce"
+    match.point_server()
+    assert match.score == "Adv In"
+    match.point_server()
+    assert match.score == "Game Server"
+
+
+def test_integration_2(match):
+    assert match.score == "Love All"
+    match.point_opponent()
+    assert match.score == "Love-15"
+    match.point_opponent()
+    assert match.score == "Love-30"
+    match.point_server()
+    assert match.score == "15-30"
+    match.point_server()
+    assert match.score == "30 All"
+    match.point_opponent()
+    assert match.score == "30-40"
+    match.point_server()
+    assert match.score == "Deuce"
+    match.point_server()
+    assert match.score == "Adv In"
+    match.point_opponent()
+    assert match.score == "Deuce"
+    match.point_opponent()
+    assert match.score == "Adv Out"
+    match.point_server()
+    assert match.score == "Deuce"
+    match.point_opponent()
+    assert match.score == "Adv Out"
+    match.point_opponent()
+    assert match.score == "Game Opponent"
