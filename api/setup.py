@@ -4,8 +4,8 @@ import os.path
 import setuptools
 
 ROOT_PATH = os.path.dirname(os.path.realpath(__file__))
-SOURCE_PATH = os.path.join(ROOT_PATH, "source")
-README_PATH = os.path.join(ROOT_PATH, "README.rst")
+SOURCE_PATH = os.path.join(ROOT_PATH, "api", "source")
+README_PATH = os.path.join(ROOT_PATH, "api", "README.rst")
 
 # with open(README_PATH, "r") as fh:
 #     long_description = fh.read()
@@ -16,7 +16,8 @@ INSTALL_REQUIRES = []
 
 APP_REQUIRES = [
     "flask >= 1, < 2",
-    "python-dotenv >= 0.16.0, < 1"
+    "python-dotenv >= 0.16.0, < 1",
+    "gunicorn >= 20, < 21",
 ]
 
 TEST_REQUIRES = [
